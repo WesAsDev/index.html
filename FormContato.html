@@ -6,7 +6,6 @@
   <link rel="shortcut icon" type="imagex/png" href="logo2.ico">
 
   <style>
-    
     body {
       margin: 0;
       font-family: 'Courier New', Courier, monospace;
@@ -31,17 +30,18 @@
       border-radius: 5px;
     }
 
-    
+
     textarea[type=text] {
-      height: 50px;
+      height: 100px;
       -webkit-transition: height .35s ease-in-out;
       transition: height .35s ease-in-out;
     }
+
     textarea[type=text]:focus {
-      height: 100px;
+      height: 110px;
     }
 
- 
+
     input:hover[type="submit"] {
       background: red;
       cursor: pointer;
@@ -55,13 +55,33 @@
       align-items: center;
       justify-content: center;
       border-color: #ff0000;
+      align-self: center;
     }
 
-    img{
+    img {
       width: 15%;
     }
 
+    .caixa {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 50vw;
+    }
+    
+    .direita {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
 
+    .questions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    
     
   </style>
 
@@ -73,53 +93,59 @@
 
   <div class="caixa">
 
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead" method="POST">
-      <input type="hidden" name="oid" value="00D8c000004sf0v" />
-      <input type="hidden" name="retURL" value="https://wesasdev.github.io/agradecimento/" />
+    <div class="questions">
 
-      <div class="labels">
-        <label for="first_name">Primeiro Nome: </label>
-        <input id="first_name" maxlength="40" name="first_name" size="20"
-          type="text" /><br />
-      </div>
+    <div>
 
-      <div class="labels">
-        <label for="last_name">Sobrenome:</label><input id="last_name" maxlength="80" name="last_name" size="20"
-          type="text" /><br />
-      </div>
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead" method="POST">
+        <input type="hidden" name="oid" value="00D8c000004sf0v" />
+        <input type="hidden" name="retURL" value="https://wesasdev.github.io/agradecimento/" />
 
-      <div class="labels">
-        <label for="phone">Telefone:</label><input id="phone" maxlength="40" name="phone" size="20" type="text" /><br />
-      </div>
+        <div class="labels">
+          <label for="first_name">Primeiro Nome: </label>
+          <input id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br />
+        </div>
 
-      <div class="labels">
-        <label for="email">Email:</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
-      </div>
+        <div class="labels">
+          <label for="last_name">Sobrenome:</label><input id="last_name" maxlength="80" name="last_name" size="20"
+            type="text" /><br />
+        </div>
 
-      <div class="labels">
-        <label for="company">Empresa:</label><input id="company" maxlength="40" name="company" size="20"
-          type="text" /><br />
-      </div>
+        <div class="labels">
+          <label for="phone">Telefone:</label><input id="phone" maxlength="18" name="phone" size="20"
+            type="text"  placeholder="Digite apenas números" /><br />
+        </div>
 
+        <div class="labels">
+          <label for="email">Email:</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
+        </div>
+
+        <div class="labels">
+          <label for="company">Empresa:</label><input id="company" maxlength="40" name="company" size="20"
+            type="text" /><br />
+          
+          
       <div class="labels">
         <label for="city">Cidade:</label><input id="city" maxlength="40" name="city" size="20" type="text" /><br />
       </div>
+        </div>
+
+    </div>
+
+    <div class="direita">
 
       <div class="labels">
-        <label for="state">Estado/Província:</label><input id="state" maxlength="20" name="state" size="20"
+        <label for="state">Estado:</label><input id="state" maxlength="20" name="state" size="20"
           type="text" /><br />
       </div>
-
-      <div class="labels">
-<<<<<<< HEAD
-        <label for:"CNPJ"></label>CNPJ:<input  id="00N8c00000KZsPS" maxlength="14" name="00N8c00000KZsPS" type="text" wrap="soft"/><br>
-=======
-        CNPJ:<textarea  id="00N8c00000KZsPS" name="00N8c00000KZsPS" type="text" wrap="soft" placeholder="Digite somente números" maxlength="14" minlength"14"></textarea><br>
->>>>>>> 91e1f40bda0102580531bdd6e000069b0ca203ab
+      
+        <div class="labels">
+        <label for="CNPJ">CNPJ:</label><input id="cnpj" maxlength="14" name="cnpj" size="20"
+          type="text" placeholder="Digite apenas números" /><br />
       </div>
 
       <div class="labels">
-        <label for="recordType">Tipo de registro de Lead:</label><select id="recordType" name="recordType">
+        <label for="recordType">Informe o tipo da empresa:</label><select id="recordType" name="recordType">
           <option value="">-- Nenhum --</option>
           <option value="0128c000001y24j">Concessionária</option>
           <option value="0128c000001y253">Pessoa Jurídica</option>
@@ -130,13 +156,15 @@
         Motivo do Contato com a Empresa:<textarea id="00N8c00000KaGd5" name="00N8c00000KaGd5" type="text"
           wrap="soft"></textarea><br />
       </div>
+    </div>
 
+  </div class= "button">
+     
+    <input class="button slide_from_left" type="submit" name="submit" style="width: 10vw; height:3vh" />
 
-      <div class="button">
-        <input class="button slide_from_left" type="submit" name="submit" style="width: 10vw; height:3vh" />
-      </div>
     </form>
   </div>
+
 </body>
 
 </html>
